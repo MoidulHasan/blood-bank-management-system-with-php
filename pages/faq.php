@@ -3,24 +3,7 @@
 ?>
 
 <!-- end main-header  -->
-        <!--  PAGE HEADING -->
-        <section class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <h3>
-                            FAQ
-                        </h3>
-                        <p class="page-breadcrumb">
-                            <a href="#">Home</a> / FAQ
-                        </p>
-                    </div>
-                </div>
-                <!-- end .row  -->
-            </div>
-            <!-- end .container  -->
-        </section>
-        <!-- end .page-header  -->
+
         <!--  SECTION FAQ -->
         <section class="section-content-block section-faq">
             <div class="container">
@@ -144,7 +127,7 @@
         </section>
         <!--  end .section-faq -->
 
-        
+
 
 <?php
     require_once("./footer.php");
