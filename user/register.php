@@ -1,3 +1,4 @@
+
 <?php 
     // require('session.php');
     // if(logged_in())
@@ -31,22 +32,21 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary d-flex align-items-center justify-content-center">
 
-  <div class="container">
+  <div class="container d-flex align-items-center justify-content-center p-0 my-2">
 
     <!-- Outer Row -->
-    <div class="row align-item-center justify-content-center">
+    <div class="row d-flex justify-content-center p-0">
 
-      <div class="col-xl-8 col-lg-8 col-md-6">
+      <div class="col-md-12">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
+        <div class="card o-hidden border-0 shadow-lg">
+          <div class="card-body p-5 shadow">
             <!-- Nested Row within Card Body -->
-            <div class="row shadow">
-              <div class="col-lg-2"></div>
-              <div class="col-lg-8">
-                <div class="p-5">
+            <div class="row">
+              <div class="col-12">
+                <div class="py-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Register To Online Blood Bank</h1>
                   </div>
@@ -64,27 +64,39 @@
                         <input class="form-control form-control-user" placeholder="Contact" name="contact" type="text" autofocus required>
                     </div>
 
-                    <div class="form-group">
-                        <select name="bloodGroup" class="form-control" required>
-                            <option selected="">Select Blood Group</option>
-                            <option value="A+" >A+</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                        </select>
-                    </div>
-
-                    <div class="row">
-                      <div class="form-group col-6 ">
-                          <input class="form-control form-control-user" placeholder="Age*" name="age" type="text" autofocus required>
+                    <div class = "row">
+                      <div class="form-group col-6">
+                          <select name="bloodGroup" class="form-control" required>
+                              <option value="">Select Blood Group</option>
+                              <option value="A+" >A+</option>
+                              <option value="A-">A-</option>
+                              <option value="B+">B+</option>
+                              <option value="B-">B-</option>
+                              <option value="O+">O+</option>
+                              <option value="O-">O-</option>
+                              <option value="AB+">AB+</option>
+                              <option value="AB-">AB-</option>
+                          </select>
                       </div>
 
                       <div class="form-group col-6">
-                        <input class="form-control form-control-user" placeholder="Last Donated" name="lastDoneted" type="date" autofocus>
+                          <select name="registerAs" class="form-control" required>
+                              <option value="">Register As</option>
+                              <option value="donor" >Blood Donor</option>
+                              <option value="patient">Patient</option>
+                          </select>
+                      </div>
+                    </div>
+
+                    
+
+                    <div class="row">
+                      <div class="form-group col-6 ">
+                          <input class="form-control" placeholder="Age*" name="age" type="text" autofocus required>
+                      </div>
+
+                      <div class="form-group col-6">
+                        <input class="form-control" placeholder="Last Donated" name="lastDoneted" type="date" autofocus>
                       </div>
                     </div>
                     
