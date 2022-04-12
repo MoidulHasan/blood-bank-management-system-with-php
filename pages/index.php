@@ -15,7 +15,7 @@
                             </h2>
                             <h3>Blood is the most precious gift that anyone can give to another person.<br> Donating blood not only saves the life also save donor's lives.
                             </h3>
-                            <a href="#" class="btn btn-slider">Become a Blood donor</a>
+                            <a href="../user/register.php" class="btn btn-slider">Become a Blood donor</a>
                         </div>
                     </div>
                     <!-- end .col-md-12  -->
@@ -102,7 +102,7 @@
                         <p>
                             You can request for blood to save your life.
                         </p>
-                        <a class="btn btn-cta-2" href="#">Request For Blood</a>
+                        <a class="btn btn-cta-2" href="../user/register.php">Request For Blood</a>
                     </div>
                     <!--  end .col-md-8  -->
                 </div>
