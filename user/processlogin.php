@@ -31,7 +31,7 @@
             $_SESSION['name'] = $userData['name'];
             $_SESSION['role'] = $userData['role'];
             $_SESSION['gender'] = $userData['gender'];
-            echo $_SESSION['name'];
+            // echo $_SESSION['role'];
 
             // redirect user based on role
             if($userData['role'] == "Admin"){

@@ -5,8 +5,9 @@
 	
 	//create a new function to check if the session variable loggedin is on set and role is "Admin"
 	function logged_in() {
-		if(isset($_SESSION['loggedin']) && $_SESSION['role'] =="Admin"){
-			true;
+		// echo $_SESSION['role'];
+		if($_SESSION['loggedin'] && ($_SESSION['role'] =="Admin")){
+			return true;
 		}else{
 			return false;
 		}
@@ -14,11 +15,11 @@
 	//this function if session member is not set then it will be redirected to index.php
 	function confirm_logged_in() {
 		if (!logged_in()) {
-?>
-			<script type="text/javascript">
-				window.location = "../login.php";
-			</script>
-<?php
+			?>
+				<script type="text/javascript">
+					window.location = "../login.php";
+				</script>
+			<?php
 		}
 	}
 ?>

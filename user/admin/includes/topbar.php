@@ -34,19 +34,6 @@
 
               </a>
 
-              <?php 
-
-                $query = 'SELECT ID, FIRST_NAME,LAST_NAME,USERNAME,PASSWORD
-                          FROM users u
-                          JOIN employee e ON e.EMPLOYEE_ID=u.EMPLOYEE_ID';
-                $result = mysqli_query($db, $query) or die (mysqli_error($db));
-      
-                while ($row = mysqli_fetch_assoc($result)) {
-                          // $a = $_SESSION['MEMBER_ID'];
-                }
-                          
-            ?>
-
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
