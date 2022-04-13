@@ -17,7 +17,7 @@
 
 
         // declare blood request insertaion sql command
-        $query="insert into blood_request(user_id, name, bloodGroup, unit, date, disease) values('$id', '$name', '$bloodGroup', '$unit', '$date', '$disease')";
+        $query="insert into blood_donation(user_id, name, bloodGroup, unit, date, disease) values('$id', '$name', '$bloodGroup', '$unit', '$date', '$disease')";
 
         // check if user data is inserted
         if(mysqli_query($con, $query) )

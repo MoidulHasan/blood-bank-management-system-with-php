@@ -5,11 +5,11 @@ include'./includes/sidebar.php';
     
     <div class="card shadow mb-4 container mt-5">
         <div class="card-header py-3">
-            <h4 class="m-2 font-weight-bold text-primary">Request For Blood</h4>
+            <h4 class="m-2 font-weight-bold text-primary">Donate Blood</h4>
         </div>
 
         <div class="card-body">
-            <form action="./backend/process-blood-request.php" method="POST">
+            <form action="./backend/process-blood-donation.php" method="POST">
                 <div class="row">
                     <input name="id" type="text" value="<?php echo $_SESSION['id']; ?>" autofocus hidden>
                     <input name="name" type="text" value="<?php echo $_SESSION['name']; ?>" autofocus hidden>
@@ -46,7 +46,7 @@ include'./includes/sidebar.php';
                         <textarea name="disease" class="form-control" id="Disease" rows="3"></textarea>
                     </div>
 
-                    <button class="btn btn-primary btn-user btn-block mx-2" type="submit" name="submit">Register</button>
+                    <button class="btn btn-primary btn-user btn-block mx-2" type="submit" name="submit">Submit</button>
                     <hr>
 
                     

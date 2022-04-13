@@ -9,7 +9,7 @@
 
 
         // sql command for updating status
-        $query="DELETE FROM blood_request WHERE id='$id'";
+        $query="DELETE FROM blood_donation WHERE id='$id'";
 
         // Update
         if(mysqli_query($con, $query)){

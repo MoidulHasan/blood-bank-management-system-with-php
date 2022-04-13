@@ -22,7 +22,7 @@ include'./includes/sidebar.php';
           <tbody>
             <?php                  
                 // construct sql command for fatching all pending user list from preuser table
-                $query = "SELECT * FROM blood_request";
+                $query = "SELECT * FROM blood_donation";
 
                 // query for preusers data
                 $result = mysqli_query($con, $query) or die (mysqli_error($con));
@@ -66,7 +66,7 @@ include'./includes/sidebar.php';
       <div class="modal-dialog modal-lg">  
            <div class="modal-content">  
                 <div class="modal-header">  
-                <h4 class="modal-title">Patients's Details</h4>  
+                <h4 class="modal-title">Blood Donation Details</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>  
                  </div>  
                 <div class="modal-body" id="preUsers-details">  
@@ -102,7 +102,7 @@ include'./includes/sidebar.php';
                     method: "POST",
                     data: {
                         id: id,
-                        type: "blood_request",
+                        type: "blood_donation",
                     },
                     
                     success: function(data) {
@@ -127,7 +127,7 @@ include'./includes/sidebar.php';
                     method: "POST",
                     data: {
                         id: id,
-                        type: "blood_request",
+                        type: "blood_donation",
                     },
                     
                     success: function(data) {
@@ -150,7 +150,7 @@ include'./includes/sidebar.php';
         if (confirmalert == true) {
             // AJAX Request
             $.ajax({
-                url: './backend/delete-request.php',
+                url: './backend/delete-donation.php',
                 type: 'POST',
                 data: { 
                     id:deleteid,

@@ -6,7 +6,7 @@
 	//create a new function to check if the session variable loggedin is on set and role is "Admin"
 	function logged_in() {
 		// echo $_SESSION['role'];
-		if($_SESSION['loggedin'] && ($_SESSION['role'] =="patient")){
+		if($_SESSION['loggedin'] && ($_SESSION['role'] =="donor")){
 			return true;
 		}else{
 			return false;

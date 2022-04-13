@@ -91,8 +91,8 @@
         <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">View:</h6>
-            <a class="collapse-item" href="./request-blood.php">Request For Blood</a>
-            <a class="collapse-item" href="./my-blood-request.php">My Blood Request</a>
+            <a class="collapse-item" href="./donate-blood.php">Donate Blood</a>
+            <a class="collapse-item" href="./my-blood-donation.php">My Blood Donation</a>
           </div>
         </div>
       </li>

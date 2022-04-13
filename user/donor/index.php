@@ -12,7 +12,7 @@ include'./includes/sidebar.php';
             <div class="row">
 
                 <?php
-                    $query = "SELECT * FROM blood_request where user_id='".$_SESSION['id']."'";
+                    $query = "SELECT * FROM blood_donation where user_id='".$_SESSION['id']."'";
                     // query for preusers data
                     $result = mysqli_query($con, $query) or die (mysqli_error($con));
 
@@ -36,7 +36,7 @@ include'./includes/sidebar.php';
                 </div>
 
                 <?php
-                    $query1 = "SELECT * FROM blood_request where user_id='".$_SESSION['id']."' and status='Pending'";
+                    $query1 = "SELECT * FROM blood_donation where user_id='".$_SESSION['id']."' and status='Pending'";
                     // query for preusers data
                     $result1 = mysqli_query($con, $query1) or die (mysqli_error($con));
 
@@ -61,7 +61,7 @@ include'./includes/sidebar.php';
 
 
                 <?php
-                    $query2 = "SELECT * FROM blood_request where user_id='".$_SESSION['id']."' and status='Approved'";
+                    $query2 = "SELECT * FROM blood_donation where user_id='".$_SESSION['id']."' and status='Approved'";
                     // query for preusers data
                     $result2 = mysqli_query($con, $query2) or die (mysqli_error($con));
 
