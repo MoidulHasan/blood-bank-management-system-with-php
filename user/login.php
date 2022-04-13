@@ -31,31 +31,30 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary d-flex align-items-center justify-content-center">
 
-  <div class="container">
+  <div class="container d-flex align-items-center justify-content-center p-0 my-2">
 
     <!-- Outer Row -->
-    <div class="row align-item-center justify-content-center">
+    <div class="row d-flex justify-content-center p-0">
 
-      <div class="col-xl-8 col-lg-8 col-md-6">
+      <div class="col-md-12">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
+        <div class="card o-hidden border-0 shadow-lg">
+          <div class="card-body p-5 shadow">
             <!-- Nested Row within Card Body -->
-            <div class="row shadow">
-              <div class="col-lg-2"></div>
-              <div class="col-lg-8">
-                <div class="p-5">
+            <div class="row">
+              <div class="col-12">
+                <div class="py-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Login to Online Blood Bank</h1>
                   </div>
                   <form class="user" role="form" action="processlogin.php" method="post">
                     <div class="form-group">
-                        <input class="form-control form-control-user" placeholder="Email" name="email" type="text" autofocus>
+                        <input class="form-control form-control-user" placeholder="Email" name="email" type="text" autofocus required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-user" placeholder="Password" name="password" type="password" value="">
+                        <input class="form-control form-control-user" placeholder="Password" name="password" type="password" value="" required>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">

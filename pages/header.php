@@ -38,8 +38,8 @@
                                 <li><a href="./index.php" title="Home Layout 01">Home</a></li>
                                 <li><a href="./about.php" title="About Us">About Us</a></li>
                                 <li><a href="./faq.php" title="FAQ">FAQ</a></li>
-                                <li><a href="./login.php">Login</a></li>
-                                <li><a href="./register.php">Register</a></li>
+                                <li><a href="../user/login.php">Login</a></li>
+                                <li><a href="../user/register.php">Register</a></li>
                             </ul>
                         </div>
                     </div>

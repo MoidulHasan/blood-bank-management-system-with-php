@@ -60,9 +60,21 @@
                         <input class="form-control form-control-user" placeholder="Email" name="email" type="text" autofocus required>
                     </div>
 
-                    <div class="form-group">
-                        <input class="form-control form-control-user" placeholder="Contact" name="contact" type="text" autofocus required>
+                    <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                              <input class="form-control" placeholder="Contact" name="contact" type="text" autofocus required>
+                          </div>
+                        </div>
+                        <div class="form-group col-6">
+                          <select name="gender" class="form-control" required>
+                              <option value="">Select Gender</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                          </select>
+                      </div>
                     </div>
+                    
 
                     <div class = "row">
                       <div class="form-group col-6">
@@ -119,7 +131,7 @@
                         <input class="form-control form-control-user" placeholder="Confirm Password" name="confirmPassword" type="password" value="" required>
                     </div>
 
-                    <button class="btn btn-primary btn-user btn-block" type="submit" name="btnlogin">Register</button>
+                    <button class="btn btn-primary btn-user btn-block" type="submit" name="submit">Register</button>
                     <hr>
                 </form>
                 </div>
