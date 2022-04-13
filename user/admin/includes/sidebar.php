@@ -134,7 +134,7 @@
         </a>
         <div id="collapseBloodStock" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="add-blood.php">Add Blood</a>
+            <a class="collapse-item" href="blood-stock.php">Blood Stock</a>
             <a class="collapse-item" href="manage-donation.php">Manage Blood Donation</a>
             <a class="collapse-item" href="manage-request.php">Manage Blood Request</a>
           </div>
@@ -142,21 +142,6 @@
       </li>
 
       
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-
-          <span>Report</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-
-            <a class="collapse-item" href="report_todays_sale.php">Donor Report</a>
-            <a class="collapse-item" href="report_inventory.php">Patient Report</a>
-            <a class="collapse-item" href="report_outof_stocked_product.php">Blood Stock Report</a>
-
-          </div>
-        </div>
-      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

@@ -37,8 +37,8 @@ include'./includes/sidebar.php';
                                     
                                     <td class="text-center">
                                         <input data-toggle="tooltip" data-placement="top" title="View" type="image" src="https://i.ibb.co/GTDGd2G/view.png" alt="view" border="0" width="30" height="30"   id="<?php echo $row["id"]; ?>" class=" view_data" />
-                                        <input data-toggle="tooltip" data-placement="top" title="Approve" <?php if( $row["status"]=="Approved") echo "disabled" ?> type="image" src="https://i.ibb.co/cwCZGh9/approve.png" alt="approve" border="0" width="30" height="30"  id="<?php echo $row["id"]; ?>" class=" approve" />
-                                        <input data-toggle="tooltip" data-placement="top" title="Reject" <?php if( $row["status"]=="Approved") echo "disabled" ?> type="image" src="https://i.ibb.co/s5MCkyz/delete.png" alt="delete" border="0" width="30" height="30"  name="delete"  value="delete" id="<?php echo $row["id"]; ?>" class=" delete" />
+                                        <input data-toggle="tooltip" data-placement="top" title="Approve" <?php if( $row["status"]!="Pending") echo "disabled" ?> type="image" src="https://i.ibb.co/cwCZGh9/approve.png" alt="approve" border="0" width="30" height="30"  id="<?php echo $row["id"]; ?>" class=" approve" />
+                                        <input data-toggle="tooltip" data-placement="top" title="Reject" <?php if( $row["status"]!="Pending") echo "disabled" ?> type="image" src="https://i.ibb.co/s5MCkyz/delete.png" alt="delete" border="0" width="30" height="30"  name="delete"  value="delete" id="<?php echo $row["id"]; ?>" class=" delete" />
                                     </td> 
                                 </tr>
                             <?php

@@ -2,58 +2,53 @@
 include'../conn.php';
 include'./includes/sidebar.php';
 ?>
-    <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h4 class="m-2 font-weight-bold text-primary">All Donation Request</h4>
-    </div>
     
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">        
-          <thead>
-              <tr>
-                <th>Name</th>
-                <th>Blood Group</th>
-                <th>Unit</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-          </thead>
-          <tbody>
-            <?php                  
-                // construct sql command for fatching all pending user list from preuser table
-                $query = "SELECT * FROM blood_donation";
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h4 class="m-2 font-weight-bold text-primary">Blood Stock</h4>
+        </div>
 
-                // query for preusers data
-                $result = mysqli_query($con, $query) or die (mysqli_error($con));
-                if (mysqli_num_rows($result) > 0) {
+        <div class="card-body">
+            <div class="row">
+
+                <?php
+                    $query = "SELECT * FROM blood_stock";
+
+                    // query for preusers data
+                    $result = mysqli_query($con, $query) or die (mysqli_error($con));
+                    if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
                             ?>
-                                <tr>
-                                    <td><?php echo $row["name"]  ?></td>
-                                    <td><?php echo $row["bloodGroup"];  ?></td>
-                                    <td><?php echo $row["unit"];  ?></td>
-                                    <td class="<?php if($row["status"]=="Pending") echo "font-weight-bold text-warning"; else if( $row["status"]=="Approved") echo "font-weight-bold text-primary"; else echo "font-weight-bold text-danger"; ?>" ><?php echo $row["status"];  ?></td>
-                                    
-                                    <td class="text-center">
-                                        <input data-toggle="tooltip" data-placement="top" title="View" type="image" src="https://i.ibb.co/GTDGd2G/view.png" alt="view" border="0" width="30" height="30"   id="<?php echo $row["id"]; ?>" class=" view_data" />
-                                        <input data-toggle="tooltip" data-placement="top" title="Approve" <?php if( $row["status"]!="Pending") echo "disabled" ?> type="image" src="https://i.ibb.co/cwCZGh9/approve.png" alt="approve" border="0" width="30" height="30"  id="<?php echo $row["id"]; ?>" class=" approve" />
-                                        <input data-toggle="tooltip" data-placement="top" title="Reject" <?php if( $row["status"]!="Pending") echo "disabled" ?> type="image" src="https://i.ibb.co/s5MCkyz/delete.png" alt="delete" border="0" width="30" height="30"  name="delete"  value="delete" id="<?php echo $row["id"]; ?>" class=" delete" />
-                                    </td> 
-                                </tr>
+                            <div class="col-6 col-md-3 my-5">
+                                <div class="card p-3">
+                                    <div class="row">
+                                        <div class="col-6 d-flex justify-content-start">
+                                            <h3 class="justify-content-start">
+                                                <?php  echo $row["bloodGroup"]; ?>
+                                            </h3>
+                                        </div>
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <h3 class="justify-content-end">
+                                                <?php  echo $row['unit']; ?>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <?php
-                            
                         }
                     }
-                    else{
-                        echo "No user yet!";
-                    }
+
                 ?>
-          </tbody>
-        </table>
-      </div>
+                        
+
+                
+            </div>
+        </div>
     </div>
-  </div>
+    
+
+       
 
 
 

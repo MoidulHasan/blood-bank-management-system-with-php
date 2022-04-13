@@ -10,13 +10,13 @@
         $type = $_POST['type'];
 
 
-        // sql command for inserting into user table 
+        // sql command for updating status
         $query="UPDATE ".$type." SET status='Rejected' WHERE id='$id'";
 
-        // insert this user into users table 
+        // Update
         if(mysqli_query($con, $query)){
 
-            // response about blood stock updae
+            // response about rejection
             echo "Request Rejected";
         }
         else{
@@ -24,7 +24,7 @@
         }
 	}
     else{
-        echo "Please provide a valid Blood Donation ID";
+        echo "Please provide a valid Blood ID";
     }
 	
 ?>
