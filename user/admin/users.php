@@ -4,7 +4,7 @@ include'./includes/sidebar.php';
 ?>
     <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h4 class="m-2 font-weight-bold text-primary">Pending User&nbsp;</h4>
+      <h4 class="m-2 font-weight-bold text-primary">All Users&nbsp;</h4>
     </div>
     
     <div class="card-body">
@@ -14,14 +14,14 @@ include'./includes/sidebar.php';
               <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Blood Group</th>
+                <th>Role</th>
                 <th>Action</th>
               </tr>
           </thead>
           <tbody>
             <?php                  
                 // construct sql command for fatching all pending user list from preuser table
-                $query = "SELECT * FROM preusers";
+                $query = "SELECT * FROM users";
 
                 // query for preusers data
                 $result = mysqli_query($con, $query) or die (mysqli_error($con));
@@ -31,7 +31,7 @@ include'./includes/sidebar.php';
                                 <tr>
                                     <td><?php echo $row["name"]  ?></td>
                                     <td><?php echo $row["email"];  ?></td>
-                                    <td><?php echo $row["bloodGroup"];  ?></td>
+                                    <td><?php echo $row["role"];  ?></td>
                                     
                                     <td class="text-center">
                                         <input type="image" src="https://i.ibb.co/GTDGd2G/view.png" alt="view" border="0" width="30" height="30"   id="<?php echo $row["id"]; ?>" class=" view_data" />
@@ -43,7 +43,7 @@ include'./includes/sidebar.php';
                         }
                     }
                     else{
-                        echo "No Application Today";
+                        echo "No user yet!";
                     }
                 ?>
           </tbody>
@@ -61,7 +61,7 @@ include'./includes/sidebar.php';
       <div class="modal-dialog modal-lg">  
            <div class="modal-content">  
                 <div class="modal-header">  
-                <h4 class="modal-title">Pending User's Details</h4>  
+                <h4 class="modal-title">User's Details</h4>  
               <button type="button" class="close" data-dismiss="modal">&times;</button>  
                  </div>  
                 <div class="modal-body" id="preUsers-details">  
@@ -88,7 +88,7 @@ include'./includes/sidebar.php';
             var id = $(this).attr("id");
             if (id != '') {
                 $.ajax({
-                    url: "./backend/show-pending-user.php",
+                    url: "./backend/show-user.php",
                     method: "POST",
                     data: {
                         id: id

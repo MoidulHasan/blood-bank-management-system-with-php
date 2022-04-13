@@ -32,8 +32,9 @@
                 $bloodGroup = $preuser['bloodGroup'];
                 $disease = $preuser['disease'];
                 $lastDonation = $preuser['lastDonation'];
+                $address = $preuser['address'];
 
-                $query2 = "insert into donors(user_id, contact, age, bloodGroup, disease, lastDonation) values('$last_id', '$contact', '$age', '$bloodGroup', '$disease', '$lastDonation')";
+                $query2 = "insert into donors(user_id, contact, age, bloodGroup, disease, lastDonation, address) values('$last_id', '$contact', '$age', '$bloodGroup', '$disease', '$lastDonation', '$address')";
 
                 if(mysqli_query($con, $query2)){
                     // echo "Data inserted";
