@@ -62,7 +62,7 @@
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <button class="btn btn-primary btn-user btn-block" type="submit" name="btnlogin">Login</button>
+                    <button class="btn btn-primary btn-user btn-block" type="submit" name="submit">Login</button>
                     <hr>
                   <!-- <div class="text-center">
                     <a class="small" href="register.php">Create an Account!</a>

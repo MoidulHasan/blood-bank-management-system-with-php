@@ -37,7 +37,7 @@
                     echo '<script type="text/javascript">alert("Registration data submited, please wait for account approval!!");history.go(-2);</script>';
                 }
                 else{
-                    echo '<script type="text/javascript">alert("Internal Server Error, Please Try Again Letter!!");history.go(-1);</script>';
+                    echo '<script type="text/javascript">alert("Internal Server Error, Please Try Again Latter!!");history.go(-1);</script>';
                     // echo "ERROR: Could not able to execute . " . mysqli_error($con);
                 }
 
