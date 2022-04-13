@@ -148,9 +148,12 @@ include'./includes/sidebar.php';
         if (confirmalert == true) {
             // AJAX Request
             $.ajax({
-                url: './backend/reject-donation.php',
+                url: './backend/reject-donation-request.php',
                 type: 'POST',
-                data: { id:deleteid },
+                data: { 
+                    id:deleteid,
+                    type: "blood_request",
+                },
 
                 success: function(data) {
                     $('#preUsers-details').html(data);

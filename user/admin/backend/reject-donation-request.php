@@ -7,15 +7,17 @@
 
         $id = $_POST['id'];
 
+        $type = $_POST['type'];
+
 
         // sql command for inserting into user table 
-        $query="UPDATE blood_donation SET status='Rejected' WHERE id='$id'";
+        $query="UPDATE ".$type." SET status='Rejected' WHERE id='$id'";
 
         // insert this user into users table 
         if(mysqli_query($con, $query)){
 
             // response about blood stock updae
-            echo "Blood Donation Request Rejected";
+            echo "Request Rejected";
         }
         else{
             echo "Internal Server Error, please try again latter.";
