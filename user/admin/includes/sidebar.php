@@ -135,7 +135,8 @@
         <div id="collapseBloodStock" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="add-blood.php">Add Blood</a>
-            <a class="collapse-item" href="blood-donation-list.php">Blood Donation List</a>
+            <a class="collapse-item" href="manage-donation.php">Manage Blood Donation</a>
+            <a class="collapse-item" href="manage-donation.php">Manage Blood Request</a>
           </div>
         </div>
       </li>

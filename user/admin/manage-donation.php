@@ -4,7 +4,7 @@ include'./includes/sidebar.php';
 ?>
     <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h4 class="m-2 font-weight-bold text-primary">All Blood Donation List</h4>
+      <h4 class="m-2 font-weight-bold text-primary">All Donation Request</h4>
     </div>
     
     <div class="card-body">
@@ -13,35 +13,36 @@ include'./includes/sidebar.php';
           <thead>
               <tr>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
+                <th>Blood Group</th>
+                <th>Unit</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
           </thead>
           <tbody>
             <?php                  
                 // construct sql command for fatching all pending user list from preuser table
-                $query = "SELECT * FROM users";
+                $query = "SELECT * FROM blood_donation";
 
                 // query for preusers data
                 $result = mysqli_query($con, $query) or die (mysqli_error($con));
                 if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
-                            if($row['role']=="donor"){
-                                ?>
+                            ?>
                                 <tr>
                                     <td><?php echo $row["name"]  ?></td>
-                                    <td><?php echo $row["email"];  ?></td>
-                                    <td><?php echo $row["role"];  ?></td>
+                                    <td><?php echo $row["bloodGroup"];  ?></td>
+                                    <td><?php echo $row["unit"];  ?></td>
+                                    <td class="<?php if($row["status"]=="Pending") echo "font-weight-bold text-warning"; else if( $row["status"]=="Approved") echo "font-weight-bold text-primary"; else echo "font-weight-bold text-danger"; ?>" ><?php echo $row["status"];  ?></td>
                                     
                                     <td class="text-center">
                                         <input type="image" src="https://i.ibb.co/GTDGd2G/view.png" alt="view" border="0" width="30" height="30"   id="<?php echo $row["id"]; ?>" class=" view_data" />
-                                        <input type="image" src="https://i.ibb.co/4pQmLfz/edit.png" alt="edit" border="0" width="30" height="30"  id="<?php echo $row["id"]; ?>" class=" edit" />
+                                        <input type="image" src="https://i.ibb.co/cwCZGh9/approve.png" alt="approve" border="0" width="30" height="30"  id="<?php echo $row["id"]; ?>" class=" approve" />
                                         <input type="image" src="https://i.ibb.co/s5MCkyz/delete.png" alt="delete" border="0" width="30" height="30"  name="delete"  value="delete" id="<?php echo $row["id"]; ?>" class=" delete" />
                                     </td> 
                                 </tr>
                             <?php
-                            }
+                            
                             
                         }
                     }
@@ -113,16 +114,16 @@ include'./includes/sidebar.php';
             if (id != '') {
                 
                 $.ajax({
-                    url: "./backend/approve-pending-user.php",
+                    url: "./backend/approve-donation.php",
                     method: "POST",
                     data: {
                         id: id
                     },
                     
                     success: function(data) {
-                        $(this).closest('tr').remove();
                         $('#preUsers-details').html(data);
                         $('#dataModal').modal('show');
+                        location.reload();
                     }
                 });
             }

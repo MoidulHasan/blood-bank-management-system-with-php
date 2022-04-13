@@ -108,6 +108,7 @@ include'./includes/sidebar.php';
         $(document).on('click', '.approve', function() {
             var id = $(this).attr("id");
             if (id != '') {
+                $(this).closest('tr').remove();
                 
                 $.ajax({
                     url: "./backend/approve-pending-user.php",
@@ -117,7 +118,7 @@ include'./includes/sidebar.php';
                     },
                     
                     success: function(data) {
-                        $(this).closest('tr').remove();
+                        
                         $('#preUsers-details').html(data);
                         $('#dataModal').modal('show');
                     }
