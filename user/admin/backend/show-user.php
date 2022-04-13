@@ -28,16 +28,23 @@
             $gender = $row['gender'];
         }
 
-            $query1 = "SELECT * FROM donors WHERE user_id = '$id'";
-            // echo $query1;
-            // query data from database
-            $result1 = mysqli_query($con, $query1);
-            while ($row1 = mysqli_fetch_array($result1)) {
 
-                echo $row1['contact'];
+        if($role == "donor"){
+            $query1 = "SELECT * FROM donors WHERE user_id='$id'";
+            
+        }else{
+            $query1 = "SELECT * FROM patients WHERE user_id='$id'";
+
+        }
+
+        // query data from database
+        $result1 = mysqli_query($con, $query1);
+        while ($row1 = mysqli_fetch_array($result1)) {
+
+            echo "asche";
 
 
-            $output .= '  
+        $output .= '  
                 <tr>  
                     <td width="30%"><label>Name</label></td>  
                     <td width="70%">' . $name.'</td>  
@@ -88,5 +95,7 @@
         </div>  
         ';
         echo $output;
+            
+            
     }
 ?>

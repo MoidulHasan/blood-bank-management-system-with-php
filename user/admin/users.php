@@ -27,7 +27,8 @@ include'./includes/sidebar.php';
                 $result = mysqli_query($con, $query) or die (mysqli_error($con));
                 if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
-                            ?>
+                            if($row['role']!="Admin"){
+                                ?>
                                 <tr>
                                     <td><?php echo $row["name"]  ?></td>
                                     <td><?php echo $row["email"];  ?></td>
@@ -40,6 +41,8 @@ include'./includes/sidebar.php';
                                     </td> 
                                 </tr>
                             <?php
+                            }
+                            
                         }
                     }
                     else{
@@ -137,7 +140,7 @@ include'./includes/sidebar.php';
         if (confirmalert == true) {
             // AJAX Request
             $.ajax({
-                url: './backend/delete-pending-user.php',
+                url: './backend/delete-user.php',
                 type: 'POST',
                 data: { id:deleteid },
                 success: function(response){
