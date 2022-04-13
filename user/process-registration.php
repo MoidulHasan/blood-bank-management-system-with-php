@@ -36,7 +36,7 @@
                 $hashedPass = sha1($password);
 
                 // declare registration data insertaion sql command
-                $query="insert into preusers(name, email, contact, gender, bloodGroup, role, age, lastDonation, desease, address, password) values('$name', '$email', '$contact', '$gender', '$bloodGroup', '$registerAs', '$age', '$lastDonation', '$disease', '$address', '$hashedPass')";
+                $query="insert into preusers(name, email, contact, gender, bloodGroup, role, age, lastDonation, disease, address, password) values('$name', '$email', '$contact', '$gender', '$bloodGroup', '$registerAs', '$age', '$lastDonation', '$disease', '$address', '$hashedPass')";
 
                 // check if user data is inserted
                 if(mysqli_query($con, $query) )

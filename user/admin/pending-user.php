@@ -106,25 +106,57 @@ include'./includes/sidebar.php';
 
         // create function to approve a pending user to user
         $(document).on('click', '.approve', function() {
-        var id = $(this).attr("id");
-        if (id != '') {
-            
-            $.ajax({
-                url: "./backend/approve-pending-user.php",
-                method: "POST",
-                data: {
-                    id: id
-                },
+            var id = $(this).attr("id");
+            if (id != '') {
                 
-                success: function(data) {
-                    $(this).closest('tr').remove();
-                    $('#preUsers-details').html(data);
-                    $('#dataModal').modal('show');
+                $.ajax({
+                    url: "./backend/approve-pending-user.php",
+                    method: "POST",
+                    data: {
+                        id: id
+                    },
+                    
+                    success: function(data) {
+                        $(this).closest('tr').remove();
+                        $('#preUsers-details').html(data);
+                        $('#dataModal').modal('show');
+                    }
+                });
+            }
+        });
+
+
+        // Delete 
+        $('.delete').click(function(){
+        var el = this;
+        
+        // Delete id
+        var deleteid = $(this).attr("id");
+        
+        var confirmalert = confirm("Are you sure?");
+        if (confirmalert == true) {
+            // AJAX Request
+            $.ajax({
+                url: './backend/delete-pending-user.php',
+                type: 'POST',
+                data: { id:deleteid },
+                success: function(response){
+
+                if(response == 1){
+                    // Remove row from HTML Table
+                    $(el).closest('tr').css('background','tomato');
+                    $(el).closest('tr').fadeOut(800,function(){
+                        $(this).remove();
+                    });
+                }else{
+                    alert('Invalid ID.');
+                }
+
                 }
             });
         }
-    });
 
+        });
 
     });
  </script>
