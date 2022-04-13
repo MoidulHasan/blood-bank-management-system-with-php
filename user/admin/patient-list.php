@@ -13,6 +13,7 @@ include'./includes/sidebar.php';
           <thead>
               <tr>
                 <th>Name</th>
+                <th>Blood Group</th>
                 <th>Email</th>
                 <th>Role</th>
                 <th>Action</th>
@@ -28,9 +29,19 @@ include'./includes/sidebar.php';
                 if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
                             if($row['role']=="patient"){
+
+                                $query1 = "SELECT bloodGroup FROM patients WHERE user_id='".$row['id']."'";
+
+                                // query for preusers data
+                                $result1 = mysqli_query($con, $query1) or die (mysqli_error($con));
+                                while($row1 = mysqli_fetch_assoc($result1)) {
+                                    $bloodGroup = $row1['bloodGroup'];
+                                }
+
                                 ?>
                                 <tr>
                                     <td><?php echo $row["name"]  ?></td>
+                                    <td><?php echo $bloodGroup ?></td>
                                     <td><?php echo $row["email"];  ?></td>
                                     <td><?php echo $row["role"];  ?></td>
                                     
