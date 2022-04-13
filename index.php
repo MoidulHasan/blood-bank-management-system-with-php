@@ -11,7 +11,6 @@
 <body>
     <script>
         window.location = `./pages`;
-        // console.log(window.location.origin);
     </script>
 </body>
 
