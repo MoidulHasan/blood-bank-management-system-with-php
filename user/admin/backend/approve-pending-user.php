@@ -25,30 +25,32 @@
 
             // fetch users role
             $preuser = mysqli_fetch_assoc($result1);
+
+            $contact = $preuser['contact'];
+            $age = $preuser['age'];
+            $bloodGroup = $preuser['bloodGroup'];
+            $disease = $preuser['disease'];
+            $lastDonation = $preuser['lastDonation'];
+            $address = $preuser['address'];
+            
             if($preuser['role'] == "donor"){
-
-                $contact = $preuser['contact'];
-                $age = $preuser['age'];
-                $bloodGroup = $preuser['bloodGroup'];
-                $disease = $preuser['disease'];
-                $lastDonation = $preuser['lastDonation'];
-                $address = $preuser['address'];
-
                 $query2 = "insert into donors(user_id, contact, age, bloodGroup, disease, lastDonation, address) values('$last_id', '$contact', '$age', '$bloodGroup', '$disease', '$lastDonation', '$address')";
+            }
+            else{
+                $query2 = "insert into patients(user_id, contact, age, bloodGroup, disease, lastDonation, address) values('$last_id', '$contact', '$age', '$bloodGroup', '$disease', '$lastDonation', '$address')";
+            }
 
-                if(mysqli_query($con, $query2)){
-                    // echo "Data inserted";
-                    $sql = "delete from preusers where id='$id'"; 
-                    if(mysqli_query($con, $sql)){
-                        echo "Account has been accepted.";
-                    } else{
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-                    }
+            if(mysqli_query($con, $query2)){
+                // echo "Data inserted";
+                $sql = "delete from preusers where id='$id'"; 
+                if(mysqli_query($con, $sql)){
+                    echo "Account has been accepted.";
+                } else{
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
                 }
-                else{
-                    echo "not inserted " .mysqli_error($con);
-                }
-
+            }
+            else{
+                echo "not inserted " .mysqli_error($con);
             }
         }
         else{

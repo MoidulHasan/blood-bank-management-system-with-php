@@ -128,7 +128,7 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBloodStock" aria-expanded="true" aria-controls="collapsethree">
+        <a class="nav-link collapsed" href="blood-stock.php" data-toggle="collapse" data-target="#collapseBloodStock" aria-expanded="true" aria-controls="collapsethree">
 
           <span>Blood Stock</span>
         </a>

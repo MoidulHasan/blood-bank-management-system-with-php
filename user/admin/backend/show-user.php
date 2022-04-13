@@ -37,11 +37,10 @@
 
         }
 
+        // echo $query1;
         // query data from database
         $result1 = mysqli_query($con, $query1);
         while ($row1 = mysqli_fetch_array($result1)) {
-
-            echo "asche";
 
 
         $output .= '  

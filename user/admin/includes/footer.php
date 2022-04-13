@@ -95,43 +95,8 @@ function isNumberKey(evt)
 </html>
 
 <?php
-  include 'modal.php';
-// JOB SELECT OPTION TAB
-$sql = "SELECT DISTINCT TYPE, TYPE_ID FROM type";
-$result = mysqli_query($db, $sql) or die ("Bad SQL: $sql");
-
-$opt = "<select class='form-control' name='type'>";
-  while ($row = mysqli_fetch_assoc($result)) {
-    $opt .= "<option value='".$row['TYPE_ID']."'>".$row['TYPE']."</option>";
-  }
-
-$opt .= "</select>";
-
-        $query = "SELECT ID, e.FIRST_NAME, e.LAST_NAME, e.GENDER, USERNAME, PASSWORD, e.EMAIL, PHONE_NUMBER, j.JOB_TITLE, e.HIRED_DATE, t.TYPE, l.PROVINCE, l.CITY
-                      FROM users u
-                      join employee e on u.EMPLOYEE_ID = e.EMPLOYEE_ID
-                      join job j on e.JOB_ID=j.JOB_ID
-                      join location l on e.LOCATION_ID=l.LOCATION_ID
-                      join type t on u.TYPE_ID=t.TYPE_ID
-                      WHERE ID =".$_SESSION['MEMBER_ID'];
-        $result = mysqli_query($db, $query) or die(mysqli_error($db));
-          while($row = mysqli_fetch_array($result))
-          {  
-                $zz= $row['ID'];
-                $a= $row['FIRST_NAME'];
-                $b=$row['LAST_NAME'];
-                $c=$row['GENDER'];
-                $d=$row['USERNAME'];
-                $e=$row['PASSWORD'];
-                $f=$row['EMAIL'];
-                $g=$row['PHONE_NUMBER'];
-                $h=$row['JOB_TITLE'];
-                $i=$row['HIRED_DATE'];
-                $j=$row['PROVINCE'];
-                $k=$row['CITY'];
-                $l=$row['TYPE'];
-          }
-      ?>
+  // include 'modal.php';
+?>
 
   <!-- User Edit Info Modal-->
   <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

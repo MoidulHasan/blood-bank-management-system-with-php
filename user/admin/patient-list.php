@@ -4,7 +4,7 @@ include'./includes/sidebar.php';
 ?>
     <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h4 class="m-2 font-weight-bold text-primary">All Users&nbsp;</h4>
+      <h4 class="m-2 font-weight-bold text-primary">All Donors&nbsp;</h4>
     </div>
     
     <div class="card-body">
@@ -27,7 +27,7 @@ include'./includes/sidebar.php';
                 $result = mysqli_query($con, $query) or die (mysqli_error($con));
                 if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
-                            if($row['role']!="Admin"){
+                            if($row['role']=="patient"){
                                 ?>
                                 <tr>
                                     <td><?php echo $row["name"]  ?></td>
@@ -64,7 +64,7 @@ include'./includes/sidebar.php';
       <div class="modal-dialog modal-lg">  
            <div class="modal-content">  
                 <div class="modal-header">  
-                <h4 class="modal-title">User's Details</h4>  
+                <h4 class="modal-title">Pateint's Details</h4>  
               <button type="button" class="close" data-dismiss="modal">&times;</button>  
                  </div>  
                 <div class="modal-body" id="preUsers-details">  
