@@ -36,9 +36,9 @@ include'./includes/sidebar.php';
                                     <td class="<?php if($row["status"]=="Pending") echo "font-weight-bold text-warning"; else if( $row["status"]=="Approved") echo "font-weight-bold text-primary"; else echo "font-weight-bold text-danger"; ?>" ><?php echo $row["status"];  ?></td>
                                     
                                     <td class="text-center">
-                                        <input type="image" src="https://i.ibb.co/GTDGd2G/view.png" alt="view" border="0" width="30" height="30"   id="<?php echo $row["id"]; ?>" class=" view_data" />
-                                        <input type="image" src="https://i.ibb.co/cwCZGh9/approve.png" alt="approve" border="0" width="30" height="30"  id="<?php echo $row["id"]; ?>" class=" approve" />
-                                        <input type="image" src="https://i.ibb.co/s5MCkyz/delete.png" alt="delete" border="0" width="30" height="30"  name="delete"  value="delete" id="<?php echo $row["id"]; ?>" class=" delete" />
+                                        <input data-toggle="tooltip" data-placement="top" title="View" type="image" src="https://i.ibb.co/GTDGd2G/view.png" alt="view" border="0" width="30" height="30"   id="<?php echo $row["id"]; ?>" class=" view_data" />
+                                        <input data-toggle="tooltip" data-placement="top" title="Approve" <?php if( $row["status"]=="Approved") echo "disabled" ?> type="image" src="https://i.ibb.co/cwCZGh9/approve.png" alt="approve" border="0" width="30" height="30"  id="<?php echo $row["id"]; ?>" class=" approve" />
+                                        <input data-toggle="tooltip" data-placement="top" title="Reject" <?php if( $row["status"]=="Rejected") echo "disabled" ?> type="image" src="https://i.ibb.co/s5MCkyz/delete.png" alt="delete" border="0" width="30" height="30"  name="delete"  value="delete" id="<?php echo $row["id"]; ?>" class=" delete" />
                                     </td> 
                                 </tr>
                             <?php
@@ -71,7 +71,7 @@ include'./includes/sidebar.php';
                 <div class="modal-body" id="preUsers-details">  
                 </div>  
                 <div class="modal-footer">  
-                     <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="#">Close</button>  
+                     <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="pageReload()">Close</button>  
                 </div>  
            </div>  
       </div>  
@@ -84,6 +84,11 @@ include'./includes/sidebar.php';
 
  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
  <script>
+
+     // function for reloading the current page
+     const pageReload = () =>{
+            location.reload();
+        }
 
      $(document).ready(function() {
 
@@ -107,6 +112,8 @@ include'./includes/sidebar.php';
             }
         });
 
+        
+
 
         // create function to approve a pending user to user
         $(document).on('click', '.approve', function() {
@@ -123,7 +130,6 @@ include'./includes/sidebar.php';
                     success: function(data) {
                         $('#preUsers-details').html(data);
                         $('#dataModal').modal('show');
-                        location.reload();
                     }
                 });
             }
@@ -141,21 +147,13 @@ include'./includes/sidebar.php';
         if (confirmalert == true) {
             // AJAX Request
             $.ajax({
-                url: './backend/delete-user.php',
+                url: './backend/reject-donation.php',
                 type: 'POST',
                 data: { id:deleteid },
-                success: function(response){
 
-                if(response == 1){
-                    // Remove row from HTML Table
-                    $(el).closest('tr').css('background','tomato');
-                    $(el).closest('tr').fadeOut(800,function(){
-                        $(this).remove();
-                    });
-                }else{
-                    alert('Invalid ID.');
-                }
-
+                success: function(data) {
+                    $('#preUsers-details').html(data);
+                    $('#dataModal').modal('show');
                 }
             });
         }
