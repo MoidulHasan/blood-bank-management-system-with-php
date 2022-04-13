@@ -9,7 +9,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-              <span>Copyright © Super Shop Management System 2021</span>
+              <span>Copyright © Online Blood Bank Management System</span>
           </div>
         </div>
       </footer>
@@ -36,10 +36,10 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body"><?php echo  $_SESSION['FIRST_NAME']; ?> are you sure do you want to logout?</div>
+        <div class="modal-body"><?php echo  $_SESSION['name']; ?> are you sure do you want to logout?</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="logout.php">Logout</a>
+          <a class="btn btn-primary" href="../logout.php">Logout</a>
         </div>
       </div>
     </div>

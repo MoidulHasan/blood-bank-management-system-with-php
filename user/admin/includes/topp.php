@@ -36,7 +36,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Super Shop Management System</title>
+  <title>online Blood Bank Management System</title>
   <link rel="icon" href="">
 
   <!-- Custom fonts for this template-->
@@ -70,7 +70,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-bars"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Super Shop Management System</div>
+        <div class="sidebar-brand-text mx-3">Online Blood Bank Management System</div>
       </a>
 
           <!-- Topbar Navbar -->

@@ -3,9 +3,13 @@
 	
 	session_start();
 	
-	//create a new function to check if the session variable member_id is on set
+	//create a new function to check if the session variable loggedin is on set and role is "Admin"
 	function logged_in() {
-		return isset($_SESSION['loggedin']);
+		if(isset($_SESSION['loggedin']) && $_SESSION['role'] =="Admin"){
+			true;
+		}else{
+			return false;
+		}
 	}
 	//this function if session member is not set then it will be redirected to index.php
 	function confirm_logged_in() {

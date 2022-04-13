@@ -36,7 +36,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Super Shop Management System</title>
+  <title>Online Blood Bank Management System</title>
   <link rel="icon" href="">
 
   <!-- Custom fonts for this template-->
@@ -63,7 +63,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-cog"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Supershop ADMIN</div>
+        <div class="sidebar-brand-text mx-3">Blood Bank ADMIN</div>
       </a>
 
       <!-- Divider -->
@@ -84,55 +84,63 @@
       </div>
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true" aria-controls="collapseTwo">
 
-          <span>Product</span>
+          <span>User</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">View:</h6>
-            <a class="collapse-item" href="product.php">Product List</a>
-            <a class="collapse-item" href="inventory.php">Inventory</a>
-            <a class="collapse-item" href="productoutofstock.php">Out Of Stock</a>
-
+            <a class="collapse-item" href="./pending-user.php">Pending Users</a>
+            <a class="collapse-item" href="./users.php">Active Users</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Members Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDonors" aria-expanded="true" aria-controls="collapseUtilities">
 
-          <span>Orders</span>
+          <span>Donors</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseDonors" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             
-            <a class="collapse-item" href="transaction.php">All Orders</a>
-            <a class="collapse-item" href="pos.php">Add Orders</a>
+            <a class="collapse-item" href="add-donor.php">Add Donor</a>
+            <a class="collapse-item" href="donor-list.php">All Donor</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Members Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsethree" aria-expanded="true" aria-controls="collapsethree">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePatient" aria-expanded="true" aria-controls="collapsethree">
 
-          <span>Info</span>
+          <span>Patient</span>
         </a>
-        <div id="collapsethree" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapsePatient" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            
-            <a class="collapse-item" href="customer.php">Customer</a>
-            <a class="collapse-item" href="employee.php">Employee</a>
-            <a class="collapse-item" href="supplier.php">Supplier</a>
-            <a class="collapse-item" href="user.php">All Accounts</a>
+            <a class="collapse-item" href="add-patient.php">Add Patient</a>
+            <a class="collapse-item" href="patient-list.php">Patient List</a>
+          </div>
+        </div>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBloodStock" aria-expanded="true" aria-controls="collapsethree">
+
+          <span>Blood Stock</span>
+        </a>
+        <div id="collapseBloodStock" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="add-patient.php">Add Blood</a>
+            <a class="collapse-item" href="patient-list.php">Stock List</a>
           </div>
         </div>
       </li>
 
       
-
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
 
@@ -141,9 +149,9 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="report_todays_sale.php">Sales Report</a>
-            <a class="collapse-item" href="report_inventory.php">Inventory Report</a>
-            <a class="collapse-item" href="report_outof_stocked_product.php">Outof Stocked Product</a>
+            <a class="collapse-item" href="report_todays_sale.php">Donor Report</a>
+            <a class="collapse-item" href="report_inventory.php">Patient Report</a>
+            <a class="collapse-item" href="report_outof_stocked_product.php">Blood Stock Report</a>
 
           </div>
         </div>
