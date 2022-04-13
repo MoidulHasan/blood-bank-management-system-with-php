@@ -128,14 +128,14 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="blood-stock.php" data-toggle="collapse" data-target="#collapseBloodStock" aria-expanded="true" aria-controls="collapsethree">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBloodStock" aria-expanded="true" aria-controls="collapsethree">
 
           <span>Blood Stock</span>
         </a>
         <div id="collapseBloodStock" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="add-patient.php">Add Blood</a>
-            <a class="collapse-item" href="patient-list.php">Stock List</a>
+            <a class="collapse-item" href="add-blood.php">Add Blood</a>
+            <a class="collapse-item" href="blood-donation-list.php">Blood Donation List</a>
           </div>
         </div>
       </li>
