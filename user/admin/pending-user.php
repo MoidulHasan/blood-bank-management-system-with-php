@@ -23,7 +23,7 @@ include'./includes/sidebar.php';
                 // construct sql command for fatching all pending user list from preuser table
                 $query = "SELECT * FROM preusers";
 
-                // make query
+                // query for preusers data
                 $result = mysqli_query($con, $query) or die (mysqli_error($con));
                 if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
@@ -82,6 +82,8 @@ include'./includes/sidebar.php';
  <script>
 
      $(document).ready(function() {
+
+        // create function to view data button click event, this function take the id of pending user then post it to backend and show response to modal
         $(document).on('click', '.view_data', function() {
             var id = $(this).attr("id");
             if (id != '') {
@@ -100,6 +102,30 @@ include'./includes/sidebar.php';
                 });
             }
         });
+
+
+        // create function to approve a pending user to user
+        $(document).on('click', '.approve', function() {
+        var id = $(this).attr("id");
+        if (id != '') {
+            
+            $.ajax({
+                url: "./backend/approve-pending-user.php",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                
+                success: function(data) {
+                    $(this).closest('tr').remove();
+                    $('#preUsers-details').html(data);
+                    $('#dataModal').modal('show');
+                }
+            });
+        }
+    });
+
+
     });
  </script>
 

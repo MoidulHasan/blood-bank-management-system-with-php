@@ -1,71 +1,60 @@
 <?php
     // connect database
     include '../../conn.php';
-    $id = 0;
+
+    // check id is posted or not
     if(isset($_POST['id'])){
-        $id = mysqli_real_escape_string($con,$_POST['id']);
-    }
-    if($id > 0){
+
+        $id = $_POST['id'];
 
 
-    $query="insert into student_info(
-    student_id,
-    fname,
-    lname,
-    father_name,
-    mather_name,
-    gender,
-    blood_group,
-    religion,
-    dob,
-    phone,
-    email,
-    paymentnumber,
-    class,
-    shift,
-    photo
-    )
-    -- Select rows from a Table or View 'TableOrViewName' in schema 'SchemaName'
-    SELECT 
-    admission_id,
-    fname,
-    lname,
-    father_name,
-    mather_name,
-    gender,
-    blood_group,
-    religion,
-    dob,
-    phone,
-    email,
-    paymentnumber,
-    class,
-    shift,
-    photo
-     FROM admission_form
-    WHERE 	admission_id='$id'";
-	
-    
-    $query1="insert into user_list(username, password, role ) SELECT username, password, role FROM admission_form
-    WHERE   admission_id='$id'";;
+        // sql command for inserting into user table 
+        $query="insert into users( name, email, password, role, gender) SELECT name, email, password, role, gender FROM preusers WHERE id='$id'";
 
-	if(mysqli_query($con, $query) && mysqli_query($con, $query1))
-	{
-	    $sql = "delete from admission_form where admission_id='$id'"; 
-        if(mysqli_query($con, $sql)){
-            echo "Account has been accepted.";
-        } else{
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+        // insert this user into users table 
+        if(mysqli_query($con, $query)){
+            // find last inserted user id 
+            $last_id = mysqli_insert_id($con);
+
+            
+            // sql command for checking the users role
+            $query1 = "SELECT * FROM preusers WHERE id='$id'";
+
+            // query for this user's role
+            $result1 = mysqli_query($con, $query1) or die (mysqli_error($con));
+
+            // fetch users role
+            $preuser = mysqli_fetch_assoc($result1);
+            if($preuser['role'] == "donor"){
+
+                $contact = $preuser['contact'];
+                $age = $preuser['age'];
+                $bloodGroup = $preuser['bloodGroup'];
+                $disease = $preuser['disease'];
+                $lastDonation = $preuser['lastDonation'];
+
+                $query2 = "insert into donors(user_id, contact, age, bloodGroup, disease, lastDonation) values('$last_id', '$contact', '$age', '$bloodGroup', '$disease', '$lastDonation')";
+
+                if(mysqli_query($con, $query2)){
+                    // echo "Data inserted";
+                    $sql = "delete from preusers where id='$id'"; 
+                    if(mysqli_query($con, $sql)){
+                        echo "Account has been accepted.";
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+                    }
+                }
+                else{
+                    echo "not inserted " .mysqli_error($con);
+                }
+
+            }
         }
-		
+        else{
+            echo "Internal Server Error, please try again latter.";
+        }
 	}
-	 else{
-    echo "ERROR: Could not able to execute $res. " . mysqli_error($con);
-	}
-	}
-	else{
-    echo "ERROR: Could not able to execute11 $res. " . mysqli_error($con);
-	}
+	
 
 
   
