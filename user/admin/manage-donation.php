@@ -121,10 +121,11 @@ include'./includes/sidebar.php';
             if (id != '') {
                 
                 $.ajax({
-                    url: "./backend/approve-donation.php",
+                    url: "./backend/approve-donation-request.php",
                     method: "POST",
                     data: {
-                        id: id
+                        id: id,
+                        type: "blood_donation",
                     },
                     
                     success: function(data) {
