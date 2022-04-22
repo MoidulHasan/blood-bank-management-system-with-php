@@ -17,6 +17,7 @@ include'./includes/sidebar.php';
             $result = mysqli_query($con, $query) or die (mysqli_error($con));
 
             $totalUser = mysqli_num_rows($result);
+            $totalUser -= 1;
         ?>
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
@@ -251,10 +252,85 @@ include'./includes/sidebar.php';
         </div>
     </div>
 
+    <!-- Pi chart row -->
+    <div class="row">
+
+        <!-- Blood request vs Blood donation pi chart -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card shadow mb-4">
+                <!-- Card Header -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Blood Stock Status</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="stockPieChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center small">
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-primary"></i> Pending Blood Unit
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-danger"></i> Requested Blood Unit
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rejected Donation Request vs Accepted Donation Request PI chart -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card shadow mb-4">
+                <!-- Card Header -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Blood Donation</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="bloodDonationPieChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center small">
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-primary"></i> Accepted
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-danger"></i> Rejected
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rejected Blood Request vs Accepted Blood Request PI chart -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card shadow mb-4">
+                <!-- Card Header -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Blood Request</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="bloodRequestPieChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center small">
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-primary"></i> Accepted
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-danger"></i> Rejected
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     
-    <div class="card shadow mb-4">
+    <!-- <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h4 class="m-2 font-weight-bold text-primary">Dashboard</h4>
         </div>
@@ -262,11 +338,109 @@ include'./includes/sidebar.php';
         <div class="card-body">
 
         </div>
-    </div>
+    </div> -->
     
 
-    
+    <?php
+        $query = "SELECT * FROM blood_donation WHERE status='Rejected'";
+        // query for rejected blood donation data
+        $result = mysqli_query($con, $query) or die (mysqli_error($con));
 
-<?php
-    include'./includes/footer.php';
-?>
+        $totalRejectedDonation = mysqli_num_rows($result);
+
+
+        // find the number of blood unit requested
+        $requestBloodSQL = "SELECT * FROM blood_request WHERE status='Pending'";
+        $requestBloodResult = mysqli_query($con, $requestBloodSQL) or die (mysqli_error($con));
+        $numberOfUnitNeeded = 0;
+        while($bloodRequest = mysqli_fetch_assoc($requestBloodResult)) {
+            $numberOfUnitNeeded += $bloodRequest['unit'];
+        }
+
+        // find the number of blood unit available
+        $donationBloodSQL = "SELECT * FROM blood_donation WHERE status='Pending'";
+        $donationBloodResult = mysqli_query($con, $requestBloodSQL) or die (mysqli_error($con));
+        $numberOfUnitAvailable = 0;
+        while($bloodDonation = mysqli_fetch_assoc($donationBloodResult)) {
+            $numberOfUnitAvailable += $bloodDonation['unit'];
+        }
+    ?>
+
+
+
+        
+
+    <?php
+        include'./includes/footer.php';
+    ?>
+
+
+    <script>
+        // Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = '#858796';
+
+        // function to runder a pi chart
+        // this function take chart html id, lavels and data
+        const showPiChart = (chartId, labels, data, backgroundColor, hoverBackgroundColor, ) =>{
+            // alert("Called")
+
+            let ctx = document.getElementById(chartId);
+
+            const pieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                data: data,
+                backgroundColor: backgroundColor,
+                hoverBackgroundColor: hoverBackgroundColor,
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+                },
+                legend: {
+                display: false
+                },
+                cutoutPercentage: 80,
+            },
+            });
+
+        };
+
+        
+        // Blood stock data
+        const stockData = [
+            unitNeeded = <?php echo $numberOfUnitNeeded;?>,
+            unitAvailable = <?php echo $numberOfUnitAvailable;?>
+        ];
+
+        console.log(stockData);
+
+        // calll function to show request vs donation pi chart
+        showPiChart("stockPieChart", ["Available Blood Unit", "Requested Blood Unit"],  stockData, ["#4e73df", "#e0dc6d"], ["#4e73df", "#e5dc6d"]);
+
+        // Blood donation data
+        const data = [
+            approved = <?php echo $totalApprovedDonation;?>,
+            rejected = <?php echo $totalRejectedDonation;?>
+        ];
+        // call function to show blood donation pi chart
+        showPiChart("bloodDonationPieChart", ["Accepted", "Rejected"],  data, ["#4e73df", "#d33b3b"], ["#4e73df", "#d33b3b"]);
+        
+        // call function to blood request pi chart
+        showPiChart("bloodRequestPieChart", ["Accepted", "Rejected"],  data, ["#4e73df", "#d33b3b"], ["#4e73df", "#d33b3b"]);
+
+        
+</script>

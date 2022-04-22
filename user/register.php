@@ -114,7 +114,7 @@
                     
 
                     <div class="form-group">
-                        <input class="form-control form-control-user" placeholder="Disease(if any)" name="disease" type="password" value="">
+                        <input class="form-control form-control-user" placeholder="Disease(if any)" name="disease" type="text" value="">
                     </div>
 
 
