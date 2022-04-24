@@ -133,6 +133,7 @@
 
                     <button class="btn btn-primary btn-user btn-block" type="submit" name="submit">Register</button>
                     <hr>
+                    <p>Already have account? <a href="./login.php">Login now</a></p>
                 </form>
                 </div>
               </div>

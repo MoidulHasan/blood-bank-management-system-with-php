@@ -23,7 +23,7 @@
         <!--  HEADER -->
         <header class="main-header clearfix">
             <section class="header-wrapper navgiation-wrapper">
-                <div class="navbar navbar-default">
+                <div class="navbar navbar-default bg-danger">
                     <div class="container">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

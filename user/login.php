@@ -56,17 +56,10 @@
                     <div class="form-group">
                         <input class="form-control form-control-user" placeholder="Password" name="password" type="password" value="" required>
                     </div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
-                      </div>
-                    </div>
+
                     <button class="btn btn-primary btn-user btn-block" type="submit" name="submit">Login</button>
                     <hr>
-                  <!-- <div class="text-center">
-                    <a class="small" href="register.php">Create an Account!</a>
-                  </div> -->
+                    <p>Don't have account? <a href="./register.php">Register now</a></p>
                 </form>
                 </div>
               </div>
